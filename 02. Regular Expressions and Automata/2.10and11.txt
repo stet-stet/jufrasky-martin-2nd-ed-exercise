@@ -1,0 +1,16 @@
+10. Give an algorithm for negating a deterministic FSA.
+
+Algorithm: Make all states that are end-states non-end-states. Make all non-end-states(including the sink state) an end-state.
+
+11. Why doesn't your previous algorithm work with NFSAs? Now extend your algorithm to negate an NFSA.
+
+Why it does not work:
+Check via NFSA succeeds if there exists a possibility that a check may succeed.
+If we apply the algorithm outlined in Question 10, 
+all strings that partly pass will not be properly negated, because
+after flipping states as outlined above, there is still chance that a check may succeed.
+
+To properly negate it, the easiest algorithm to come to mind would be:
+1. Turn the NFSA into an DFSA.
+2. Perform the procedure outlined above.
+3. We are done.
